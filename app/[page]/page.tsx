@@ -1,0 +1,5 @@
+import Site from '../site';
+import { notFound } from 'next/navigation';
+const pages:Record<string,string>={'tjanster':'Tjänster','marknadsforing':'Digital marknadsföring','grafisk-design':'Grafisk design','projekt':'Projekt & koncept','webbutveckling':'Webbdesign & utveckling','sociala-medier':'Social media management','innehall-kampanjer':'Innehåll & kampanjer','e-post-crm':'E-post & CRM','projekt-moss-mist':'MOSS & MIST – varumärkeskoncept','projekt-fika-form':'FIKA FORM – kampanjkoncept','projekt-stillrum':'STILLRUM – webbkoncept','om-oss':'Om oss','kontakt':'Kontakt','integritet':'Integritet & kakor'};
+export async function generateMetadata({params}:{params:Promise<{page:string}>}){const {page}=await params;return {title:pages[page]?`${pages[page]} | Lumen Digital`:'Sidan finns inte | Lumen Digital',description:`${pages[page]||'Lumen Digital'} — marknadsföring, design, webbutveckling och sociala medier för den svenska marknaden.`}}
+export default async function Page({params}:{params:Promise<{page:string}>}){const {page}=await params;if(!pages[page])notFound();return <Site page={page as any}/>}

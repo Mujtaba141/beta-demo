@@ -1,0 +1,1 @@
+export default function NotFound(){return <main className="section"><p className="eyebrow">LUMEN DIGITAL · 404</p><h1>Här var det tomt.</h1><p>Sidan finns inte. Låt oss hitta tillbaka.</p><a className="button" href="/">Till startsidan</a></main>}
